@@ -23,8 +23,7 @@ class AuthController {
 
   async signIn(req: Request, res: Response) {
     const { email, password } = req.body;
-    console.log("Email recebido:", email);
-    console.log("Senha recebida:", password);
+
     try {
       const user = await User.findOne({ email });
 
@@ -33,21 +32,14 @@ class AuthController {
         return;
       }
 
-      console.log("Hash armazenado no banco:", user.password);
-
-      console.log("senha enviada", password);
       try {
-        console.log("");
         const isPasswordValid = await bcrypt.compare(password, user.password);
-        console.log("Resultado da validação da senha:", isPasswordValid);
 
         if (!isPasswordValid) {
           res.status(401).json({ msg: "Invalid credentials" });
           return;
         }
-      } catch (err) {
-        console.log("deu ruim", err);
-      }
+      } catch (err) {}
 
       if (process.env.JWT_SECRET === undefined) {
         res
