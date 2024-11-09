@@ -1,6 +1,5 @@
 import type { CreateUserDTO, UserDTO } from "../dto/userDto";
 import { User } from "../models/UserModel";
-import bcrypt from "bcrypt";
 
 import { transformToUserDTO } from "../utils/converterDTO/transformToUserDTO";
 
