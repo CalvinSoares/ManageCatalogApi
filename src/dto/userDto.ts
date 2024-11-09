@@ -11,3 +11,8 @@ export type CreateUserDTO = {
   password: string;
   role: "admin" | "user";
 };
+
+export interface LoginDTO {
+  email: string;
+  password: string;
+}

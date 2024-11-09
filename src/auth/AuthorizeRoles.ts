@@ -1,5 +1,5 @@
-import { NextFunction, Response } from "express";
-import { TypeRequestUser } from "../@types/UserType";
+import type { NextFunction, Response } from "express";
+import type { TypeRequestUser } from "../@types/UserType";
 
 export const authrorizeRole = (allowedRoles: string[]) => {
   return (req: TypeRequestUser, res: Response, next: NextFunction) => {
